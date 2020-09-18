@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>在线简历</title>
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/font_908787_kekc8lrkg7e.css"
+    />
+    <style>
+      /*css reset*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      /*common css  */
+      .pill {
+        background: #000;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        width: 140px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 20px;
+      }
+
+      .layout {
+        margin: 0 auto;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      /* page css*/
+      body {
+        font: 16px/1.5 SimSun, STKaiti, "Microsoft YaHei", SimHei, Helvetica,
+          Arial;
+        color: #333;
+      }
+
+      .wrapper {
+        background-color: #ececec;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-top: 40px;
+      }
+
+      .aside {
+        float: left;
+        width: 280px;
+      }
+
+      .aside .user {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      .aside .user h1 {
+        font-size: 40px;
+      }
+
+      .aside .user h1::after {
+        content: "";
+        display: block;
+        width: 60px;
+        border-top: 1px solid #d6d6d6;
+        margin: 16px auto;
+      }
+
+      .aside .user::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: 20px;
+        border-top: 20px solid #d6d6d6;
+        border-bottom: 20px solid transparent;
+        border-right: 140px solid #d6d6d6;
+        border-left: 140px solid transparent;
+      }
+
+      .aside .contact {
+        padding: 20px;
+      }
+
+      .aside .contact li {
+        border-bottom: 1px solid #d6d6d6;
+        list-style: none;
+        line-height: 40px;
+      }
+
+      .aside .contact .iconfont {
+        border-right: 1px solid #d6d6d6;
+        padding-right: 10px;
+        margin-right: 10px;
+        padding-left: 10px;
+        display: inline-block;
+        font-size: 20px;
+        color: #7bbaaa;
+      }
+
+      .aside .skills {
+        background: #7bbaaa;
+        padding: 20px;
+        color: #fff;
+      }
+
+      .aside .skills dt {
+        color: #eee;
+        margin-top: 20px;
+      }
+
+      .aside .skills dd {
+        height: 4px;
+        background: #74c5b5;
+        border-radius: 2px;
+        margin-top: 10px;
+      }
+
+      .aside .skills .mastery {
+        height: 4px;
+        background: #fff;
+        display: block;
+        border-radius: 2px;
+      }
+
+      .aside .others h2 {
+        margin: 20px 0 0 20px;
+      }
+
+      .main {
+        margin-left: 280px;
+        background: #fff;
+        padding: 40px;
+        margin-right: 20px;
+      }
+
+      .main .intro {
+        overflow: auto;
+      }
+      .main .intro img {
+        width: 80px;
+        height: 80px;
+        float: left;
+      }
+
+      .main .intro p {
+        margin-left: 120px;
+      }
+
+      .section {
+      }
+
+      .section .pill {
+        float: left;
+        margin-top: 5px;
+      }
+
+      .section h2 {
+        font-size: 40px;
+        color: #d9d9d9;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .section .more {
+        margin-left: 50px;
+        border-left: 1px solid #eee;
+      }
+      .section h3 {
+        color: #666;
+        font-size: 20px;
+        font-weight: normal;
+      }
+      .section h3 strong {
+        color: #111;
+        font-weight: bold;
+      }
+
+      .section h3::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        border: 2px solid #7bbaaa;
+        margin-right: 20px;
+        position: relative;
+        left: -5px;
+      }
+
+      .section h4 {
+        color: #111;
+        margin-top: 20px;
+        margin-left: 40px;
+      }
+
+      .section .more ul {
+        margin-left: 50px;
+        padding-bottom: 20px;
+      }
+      .section .more li {
+        color: #666;
+        font-size: 14px;
+      }
+
+      @media print {
+        .aside {
+          width: 200px;
+        }
+        .main {
+          margin-left: 200px;
+        }
+        .aside .user::after {
+          border-right-width: 100px;
+          border-left-width: 100px;
+        }
+        .pill {
+          display: none;
+        }
+
+        .section .more {
+          margin-left: 20px;
+        }
+
+        .wrapper {
+          margin: 0;
+        }
+      }
+
+      .item img {
+        width: 40%;
+        margin: 1% 3% 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper layout clearfix">
+      <div class="aside">
+        <div class="user">
+          <h1>任涵</h1>
+          <p>应聘前端工程师</p>
+        </div>
+        <ul class="contact">
+          <li><span class="iconfont icon-email"></span> 1329754414@qq.com</li>
+          <li><span class="iconfont icon-phone"></span> 15531101094</li>
+          <li>
+            <span class="iconfont icon-experience"></span> 河北大学工商学院
+          </li>
+          <li><span class="iconfont icon-education"></span> 本科</li>
+          <li>
+            <span class="iconfont icon-github"></span>
+            <a
+              href="https://github.com/r0909?tab=repositories"
+              target="_blank"
+              style="text-decoration: underline"
+              >Github</a
+            >
+          </li>
+          <li>
+            <span class="iconfont icon-zhihu"></span>
+            <a
+              href="https://www.zhihu.com/people/hal0o0/posts"
+              target="_blank"
+              style="text-decoration: underline"
+              >知乎主页</a
+            >
+          </li>
+        </ul>
+        <br />
+        <div class="skills">
+          <h2>我的技能</h2>
+          <dl>
+            <dt>HTML5</dt>
+            <dd><span class="mastery" style="width: 90%"></span></dd>
+            <dt>CSS3</dt>
+            <dd><span class="mastery" style="width: 80%"></span></dd>
+            <dt>JavaScript/ES6</dt>
+            <dd><span class="mastery" style="width: 70%"></span></dd>
+            <dt>Vue</dt>
+            <dd><span class="mastery" style="width: 60%"></span></dd>
+            <dt>React</dt>
+            <dd><span class="mastery" style="width: 60%"></span></dd>
+            <dt>小程序</dt>
+            <dd><span class="mastery" style="width: 50%"></span></dd>
+          </dl>
+          <br />
+        </div>
+        <div class="others"></div>
+      </div>
+
+      <div class="main">
+        <!-- <div class="intro clearfix">
+        <p>1年前端开发经验，熟悉Vue技术栈，熟悉模块化、工程化开发流程，Webpack的配置小能手，熟练使用ES6写代码，有小程序、移动端开发经验</p>
+      
+      </div> -->
+
+        <div class="about-me section" style="border-bottom: 1px solid #d9d9d9;">
+          <h2>技能描述</h2>
+          <div class="more">
+            <!-- <h3 style="margin-top: 1em">毕业后曾从事外贸、电商运营等相关工作</h3>
+            <h3>毕业后曾从事外贸、电商运营等相关工作</h3>
+            <h3>毕业后曾从事外贸、电商运营等相关工作</h3>
+            <h3>毕业后曾从事外贸、电商运营等相关工作</h3> -->
+            <h3>主要掌握的技能</h3>
+            <ul>
+              <li style="margin-top: 0.5em">熟悉HTML5常见标签及语义化</li>
+              <li>熟悉CSS选择器、盒模型、flex布局</li>
+              <li>熟悉JavaScript，了解数据类型、作用域、闭包、this</li>
+              <li>熟悉ES6常用规范，了解结构赋值、箭头函数、块作用域、模块化</li>
+              <li>
+                熟悉Vue指令、生命周期、组件等概念，熟悉Vue Router，能使用Vue
+                Cli搭建项目
+              </li>
+              <li>
+                熟悉小程序常用组件、wxs、云存储，能使用uniapp开发项目
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="education section"
+          style="border-bottom: 1px solid #d9d9d9;"
+        >
+          <h2>教育经历</h2>
+          <div class="item">
+            <div class="left ">2011/09 - 2015/06</div>
+            <div class="more">
+              <h3 style="margin-top: 1em">河北大学工商学院</h3>
+              <ul>
+                <li style="margin-top: 1em">国际经济与贸易专业</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="experience section">
+        <h2>工作经历</h2>
+        <div class="detail">
+          <div class="left pill">01/2016 - 现在</div>
+          <div class="more">
+            <h3><strong>杭州饥人谷教育科技有限公司</strong>, 前端开发工程师</h3>
+            <ul>
+              <li>工作期间参与开发和维护饥人谷官网、课程平台、移动端网站、小程序，为数千同学线上学习提供技术支撑</li>
+              <li>公司前端编码规范的制定、前端UI组件库的沉淀</li>
+              <li>多次作为项目负责人主导项目立项到上线整个过程</li>
+            </ul>
+            <h4>写代码啦课程平台Web端项目</h4>
+            <ul>
+              <li><strong>项目介绍：</strong> 该项目的目的是搭建线上学习平台，把线下课堂的完整学习流程搬到线上，平台包括课程展示、购买、直播、录播、作业、权限管理、停课复课、试听等几十个大功能。该项目采用前后分离的技术方案，
+                  我主要负责前端部分的开发。项目前端部分使用Vue技术栈，移动端平台使用自己实现的vue ui组件库。</li>
+              <li><strong>技术栈：</strong>vue、vue-router、vuex、element-ui、typescript、webpack、es6、移动端</li>
+              <li><strong>项目成果:</strong> 项目支撑饥人谷日常教学活动、运营活动的正常开展，支持数千学生的日常线上学习，几十万用户的日常访问。</li>
+            </ul>
+
+            <h4>写代码啦课程平台小程序项目</h4>
+            <ul>
+                <li><strong>项目介绍：</strong> 该项目是线上学习平台的小程序版本，拥有web版本的绝大多数的功能，如课程分类、搜索、任务学习、直播等。项目使用mpvue作为开发的主要框架，目前小程序已发布。</li>
+                <li><strong>技术栈：</strong>mpvue/vue/vuex/webpack/es6</li>
+                <li><strong>项目成果:</strong>大大提升了移动端学习体验，获得学生用户的多次好评，为微信端运营提供技术支撑</li>
+            </ul>
+
+
+          </div>
+        </div>
+      </div> -->
+
+        <div class="projects section" style="border-bottom: 1px solid #d9d9d9;">
+          <h2>项目经历</h2>
+          <div class="item">
+            <div class="more">
+              <h3>使用Vue搭建社区网站</h3>
+              <ul>
+                <li style="margin-top: 1em">
+                  <strong>项目介绍：</strong>
+                  使用CNode官方api接口制作的Vue单页应用，实现的功能包括：可点击标题进入详情页，在详情页可点击用户id或头像查看用户个人信息，在个人信息页可点击作者最近参与或创建的话题，点击左上角的CNode
+                  logo可返回主页。使用的技术包括：计算属性，指令，事件绑定，Vue
+                  Router管理路由跳转，父子组件的数据传递
+                </li>
+                <li>
+                  <strong>技术栈：</strong>Vue/Vue Router/Vue Cli/axios
+                </li>
+                <li>
+                  <strong>项目源码: </strong
+                  ><a href="https://github.com/r0909/cnode-demo" target="_blank"
+                    >https://github.com/r0909/cnode-demo</a
+                  >
+                </li>
+                <li>
+                  <strong>预览项目: </strong
+                  ><a
+                    href="https://r0909.github.io/cnode-demo/#/"
+                    target="_blank"
+                    >https://r0909.github.io/cnode-demo</a
+                  >
+                </li>
+                <!-- <img src="cnode.jpg" alt="" />
+                <img src="cnode2.jpg" alt="" /> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="more">
+              <h3>Vue和Node.js实现全栈图书信息管理网站</h3>
+              <ul>
+                <li style="margin-top: 1em">
+                  <strong>项目介绍：</strong>
+                  使用 Vue 和 Node.js实现的图书信息管理网站，实现的功能包括：展示热门图书，展示全部图书以及图书信息，添加、修改和删除图书信息。使用的技术包括：组件通信，插槽，api接口设计
+                </li>
+                <li><strong>技术栈：</strong>Vue/Vue Router/Vue Cli/Node.js</li>
+                <li>
+                  <strong>项目源码: </strong
+                  ><a href="https://github.com/r0909/vue-book" target="_blank"
+                    >https://github.com/r0909/vue-book</a
+                  >
+                </li>
+                <!-- <li>
+                  <strong>预览项目: </strong
+                  ><a
+                    href="https://r0909.github.io/paint/paint/index.html"
+                    target="_blank"
+                    >https://r0909.github.io/paint/paint/index.html</a
+                  >
+                </li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="more">
+              <h3>React实现简易待办列表</h3>
+              <ul>
+                <li style="margin-top: 1em">
+                  <strong>项目介绍：</strong>
+                  使用React和Bootstrap实现的待办列表，实现的功能包括：添加待办事项至浏览器存储，删除待办事项
+                </li>
+                <li><strong>技术栈：</strong>React/Bootstrap/localStorage</li>
+                <li>
+                  <strong>项目源码: </strong
+                  ><a href="https://github.com/r0909/todo" target="_blank"
+                    >https://github.com/r0909/todo</a
+                  >
+                </li>
+                <li>
+                  <strong>预览项目: </strong
+                  ><a
+                    href=" https://r0909.github.io/todo/build/index.html"
+                    target="_blank"
+                    > https://r0909.github.io/todo/build/index.html</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="more">
+              <h3>键盘导航网站</h3>
+              <ul>
+                <li style="margin-top: 1em">
+                  <strong>项目介绍：</strong>
+                  使用原生JavaScript实现的键盘导航，实现的功能包括：点击或用键盘按下按键可跳转至相应网址，点击按键的编辑按钮可设置新的跳转网址并且在重新打开浏览器后仍可继续使用，每个按键可显示保存的网址所对应的Icon。使用的技术包括：localStorage本地存储，Dom事件
+                </li>
+                <li>
+                  <strong>技术栈：</strong>原生JavaScript/Dom/localStorage
+                </li>
+                <li>
+                  <strong>项目源码: </strong
+                  ><a href="https://github.com/r0909/keyboard" target="_blank"
+                    >https://github.com/r0909/keyboard</a
+                  >
+                </li>
+                <li>
+                  <strong>预览项目: </strong
+                  ><a
+                    href="https://r0909.github.io/keyboard/keyboard/index.html"
+                    target="_blank"
+                    >https://r0909.github.io/keyboard/keyboard/index.html</a
+                  >
+                </li>
+                <!-- <img src="paint.jpg" alt="" />
+                <img src="paint2.jpg" alt="" /> -->
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="about-me section">
+          <h2>个人经历</h2>
+          <div class="more">
+            <h3 style="margin-top: 1em; margin-bottom: 2em; ">
+              毕业后曾从事外贸、电商运营等工作
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
